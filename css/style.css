@@ -27,10 +27,23 @@ h1{
     background: linear-gradient(#87CEEB, #E0F6FF);
 }
 
+.restart-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* display: flex; */
+}
+
+.restart-container > button{
+    justify-content: center;
+}
+
 .grass{
-    height: 20vh;
+    height: 30vh;
     background: green url(../images/grass.png) center top;
     background-size: cover;
+
 }
 
 .pipe{
