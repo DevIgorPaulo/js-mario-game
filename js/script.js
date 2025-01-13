@@ -1,6 +1,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const mario   = document.querySelector('.mario');
         const pipe    = document.querySelector('.pipe');
+        const clouds   = document.querySelector('.clouds')
         const counter = document.querySelector('#counter');
         const restartContainer = document.querySelector('.restart-container');
     
@@ -38,9 +39,11 @@
                 mario.style.animation = 'none';
                 mario.style.bottom = `${marioPostion}px`;
 
-                mario.src = '../images/game-over.png'
+                mario.src = 'images/game-over.png'
                 mario.style.width = '75px'
                 mario.style.marginLeft = '50px'
+
+                clouds.style.visibility = 'hidden'
 
                 restartContainer.style.visibility = "visible";
 
