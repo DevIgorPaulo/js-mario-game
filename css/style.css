@@ -28,13 +28,29 @@ h1{
 }
 
 .restart-container{
+    visibility: hidden;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-flow: column nowrap;
-    
+    font-family: 'mario-fonte';
+    font-weight: lighter;
+    color: rgb(243, 243, 65);
+    font-size: 2em;
+    background-color: rgba(128, 128, 128, 0.445);
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.restart-container > button{
+    border-radius: 5px;
+    background-color: yellow;
+    margin: auto;
+    width: 45px;
+    height: 40px;
 }
 
 .grass{

@@ -2,6 +2,7 @@
         const mario   = document.querySelector('.mario');
         const pipe    = document.querySelector('.pipe');
         const counter = document.querySelector('#counter');
+        const restartContainer = document.querySelector('.restart-container');
     
         let cont = 0;
         let pulando = false;
@@ -21,6 +22,10 @@
                 pulando = false;
             }, 500)
         }
+        
+        const restart =  () => {
+            location.reload();
+        }
 
         const loop = setInterval(() => {
             const pipePosition = pipe.offsetLeft;
@@ -37,6 +42,8 @@
                 mario.style.width = '75px'
                 mario.style.marginLeft = '50px'
 
+                restartContainer.style.visibility = "visible";
+
                 clearInterval(loop)
             } else if(pipePosition <= 120 && pipePosition > 0 && marioPostion > 80 && pontuar){
                 cont ++;
@@ -47,4 +54,5 @@
         })
 
         document.addEventListener('keydown', jump);
+        document.getElementById("restart-button").addEventListener('click', restart)
     });
