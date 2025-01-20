@@ -1,5 +1,5 @@
     document.addEventListener('DOMContentLoaded', () => {
-        const mario   = document.querySelector('.mario');
+        const runner   = document.querySelector('.runner');
         const pipe    = document.querySelector('.pipe');
         const clouds   = document.querySelector('.clouds')
         const counter = document.querySelector('#counter');
@@ -10,19 +10,21 @@
         let pulando = false;
         let pontuar = false;
 
-        bestScore.innerHTML = "Best Score: " + localStorage.getItem('bestScore') ?? 0
+        if(localStorage.getItem('bestScore')){
+            bestScore.innerHTML = "Best Score: " + localStorage.getItem('bestScore')
+        }
 
         const jump = () => {
 
             if(pulando) return;
 
-            mario.classList.add('jump');
+            runner.classList.add('jump');
 
             pulando = true;
             pontuar = true;
 
             setTimeout(() =>{
-                mario.classList.remove('jump');
+                runner.classList.remove('jump');
                 pulando = false;
             }, 500)
         }
@@ -33,18 +35,17 @@
 
         const loop = setInterval(() => {
             const pipePosition = pipe.offsetLeft;
-            const marioPostion = +window.getComputedStyle(mario).bottom.replace('px', '');
+            const runnerPostion = +window.getComputedStyle(runner).bottom.replace('px', '');
 
-            if(pipePosition <= 120 && pipePosition > 0 && marioPostion <= 80){
+            if(pipePosition <= 120 && pipePosition > 0 && runnerPostion <= 80){
                 pipe.style.animation = 'none';
                 pipe.style.left = `${pipePosition}px`;
 
-                mario.style.animation = 'none';
-                mario.style.bottom = `${marioPostion}px`;
+                runner.style.animation = 'none';
+                runner.style.bottom = `${runnerPostion}px`;
 
-                mario.src = 'images/game-over.png'
-                mario.style.width = '75px'
-                mario.style.marginLeft = '50px'
+                runner.src = 'images/runner-stoped.gif'
+                runner.style.width = '150px'
 
                 clouds.style.visibility = 'hidden'
 
@@ -54,10 +55,8 @@
                     localStorage.setItem('bestScore', cont);
                 }
 
-                alert(localStorage.getItem('bestScore'));
-
                 clearInterval(loop)
-            } else if(pipePosition <= 120 && pipePosition > 0 && marioPostion > 80 && pontuar){
+            } else if(pipePosition <= 120 && pipePosition > 0 && runnerPostion > 80 && pontuar){
                 cont ++;
                 counter.innerHTML = "Points: " + cont;        
                 pontuar = false;

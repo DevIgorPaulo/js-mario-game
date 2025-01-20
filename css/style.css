@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'mario-fonte';
+    font-family: 'fonte-padrao';
     src: url(../retro_mario/RetroMario-Regular.otf);
 }
 
@@ -12,7 +12,7 @@
 }
 
 h1{
-    font-family: 'mario-fonte';
+    font-family: 'fonte-padrao';
     margin-left: 5px;
     color: rgb(243, 243, 65);
     font-weight: lighter;
@@ -35,7 +35,7 @@ h1{
     transform: translate(-50%, -50%);
     display: flex;
     flex-flow: column nowrap;
-    font-family: 'mario-fonte';
+    font-family: 'fonte-padrao';
     font-weight: lighter;
     color: rgb(243, 243, 65);
     font-size: 2em;
@@ -68,7 +68,7 @@ h1{
     animation: pipe-animation 1.7s infinite linear;
 }
 
-.mario{
+.runner{
     width: 150px;
     position: absolute;
     bottom: 0;
